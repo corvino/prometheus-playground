@@ -1,0 +1,23 @@
+---
+- name: Deploy Vapor app
+  hosts: all
+
+  tasks:
+    - name: sync code
+      synchronize:
+        src: ../vapor/
+        dest: vapor
+        archive: no
+        delete: yes
+        recursive: yes
+        rsync_opts:
+          - "--exclude=.build"
+    - name: build services
+      command: vapor build --release
+      args:
+        chdir: /home/vagrant/vapor/
+    - name: restart services
+      become: yes
+      supervisorctl:
+        name: vapor
+        state: restarted

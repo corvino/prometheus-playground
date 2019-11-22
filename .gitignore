@@ -1,0 +1,10 @@
+ubuntu-*-cloudimg-console.log
+
+Packages
+.build
+xcuserdata
+*.xcodeproj
+DerivedData/
+.DS_Store
+.swiftpm
+db.sqlite
