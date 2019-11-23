@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+rm /etc/nginx/sites-enabled/default
 chown root:root conf/*
 mv conf/nginx-vapor.conf /etc/nginx/conf.d/vapor.conf
 mv conf/supervisor-vapor.conf /etc/supervisor/conf.d/vapor.conf

@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "playbooks/deployVapor.yml"
   end
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080 # nginx/Vapor
+  config.vm.network "forwarded_port", guest: 80, host: 8080 # nginx (to vapor)
   config.vm.network "forwarded_port", guest: 3000, host: 3000 # Grafana
   config.vm.network "forwarded_port", guest: 9090, host: 9090 # Prometheus
   config.vm.network "forwarded_port", guest: 9100, host: 9100 # node_exporter

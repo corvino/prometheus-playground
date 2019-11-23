@@ -1,0 +1,35 @@
+---
+- name: Deploy config files
+  hosts: all
+
+  tasks:
+    - name: Disable default nginx default site
+      become: yes
+      file:
+        state: absent
+        path: /etc/nginx/sites-enabled/default
+    - name: sync nginx config
+      become: yes
+      synchronize:
+        src: ../conf/nginx-vapor.conf
+        dest: /etc/nginx/conf.d/vapor.conf
+        archive: no
+    - name: reload nginx config
+      become: yes
+      raw: nginx -s reload
+    - name: sync supervisor config
+      become: yes
+      synchronize:
+        src: ../conf/supervisor-vapor.conf
+        dest: /etc/supervisor/conf.d/vapor.conf
+        archive: no
+    - name: reread and add service
+      become: yes
+      supervisorctl:
+        name: vapor
+        state: present
+    - name: restart service
+      become: yes
+      supervisorctl:
+        name: vapor
+        state: restarted

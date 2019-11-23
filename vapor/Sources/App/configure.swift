@@ -3,6 +3,13 @@ import Vapor
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
+    // Without specifying the hostname as 0.0.0.0, Vapor appears to only
+    // allow local connections. This actually would be a nice way to
+    // force' the connection to come through nginx, if that was working.
+    var serverConfig = NIOServerConfig.default()
+    serverConfig.hostname = "0.0.0.0"
+    services.register(serverConfig)
+
     // Register providers first
     try services.register(FluentSQLiteProvider())
 
