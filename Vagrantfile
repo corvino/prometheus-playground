@@ -16,4 +16,5 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3000, host: 3000 # Grafana
   config.vm.network "forwarded_port", guest: 9090, host: 9090 # Prometheus
   config.vm.network "forwarded_port", guest: 9100, host: 9100 # node_exporter
+  config.vm.network "forwarded_port", guest: 4040, host: 4040 # prometheus-nginxlog-exporter
 end

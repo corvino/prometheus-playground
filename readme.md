@@ -1,11 +1,18 @@
-### UIs
+### The Web UIs
 
 * [Prometheus](http://localhost:9090/graph)
 * [Grafana](http://localhost:3000)
 
+### Exporter Metrics Endpoints
+
+* [prometheus-nginxlog-exporter](https://github.com/martin-helmich/prometheus-nginxlog-exporter) (Also see [NGINX Performance Metrics with Prometheus](https://www.martin-helmich.de/en/blog/monitoring-nginx.html))
+  * [prometheus-nginxlog-exporter](http://localhost:4040/metrics)
+* [node exporter](https://github.com/prometheus/node_exporter)
+  * [node exporter](http://localhost:9100/metrics)
+
 ### Ansible
 
-Ansible is used to sync and build the [https://vapor.codes](Vapor) app,
+Ansible is used to sync and build the [Vapor](https://vapor.codes) app,
 mainly because it makes using rsync to the vagrant box easy.
 
 This deploy and can also be done through the `deploy.sh` shell
