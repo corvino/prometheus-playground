@@ -33,3 +33,11 @@
       supervisorctl:
         name: vapor
         state: restarted
+    - name: sync prometheus config
+      become: yes
+      synchronize:
+        src: ../conf/prometheus/
+        dest: /etc/prometheus
+    - name: reload promethues config
+      become: yes
+      raw: systemctl kill -s SIGHUP prometheus

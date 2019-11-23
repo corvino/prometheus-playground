@@ -31,6 +31,10 @@ rm /etc/nginx/sites-enabled/default
 chown -R root:root conf/*
 mv conf/nginx-vapor.conf /etc/nginx/conf.d/vapor.conf
 mv conf/supervisor-vapor.conf /etc/supervisor/conf.d/vapor.conf
+mv /etc/prometheus/prometheus.yml /etc/prometheus/prometheus.yml.default
+mv conf/prometheus/prometheus.yml /etc/prometheus/prometheus.yml
+mv conf/prometheus/rules.yml /etc/prometheus/rules.yml
+rmdir conf/prometheus
 rmdir conf
 
 systemctl enable grafana-server.service
@@ -40,4 +44,5 @@ supervisorctl reread
 supervisorctl add
 supervisorctl reload
 supervisorctl restart vapor
-systemctl restart nginx # Should probably just be a sig?
+systemctl kill -s SIGHUP nginx
+systemctl kill -s SIGHUP prometheus
