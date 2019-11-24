@@ -1,5 +1,6 @@
 import FluentSQLite
 import Vapor
+import VaporMonitoring
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
@@ -8,6 +9,9 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // force' the connection to come through nginx, if that was working.
     var serverConfig = NIOServerConfig.default()
     serverConfig.hostname = "0.0.0.0"
+    #if os(macOS)
+        serverConfig.port = 6100
+    #endif
     services.register(serverConfig)
 
     // Register providers first
@@ -16,11 +20,16 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
+//    let prometheusService = VaporPrometheus(router: router, route: "metrics")
+    let prometheusService = VaporPrometheus(router: router, services: &services, route: "metrics")
+    services.register(prometheusService)
+    services.register(MetricsMiddleware(), as: MetricsMiddleware.self)
     services.register(router, as: Router.self)
 
     // Register middleware
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
     // middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
+    middlewares.use(MetricsMiddleware.self)
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
 

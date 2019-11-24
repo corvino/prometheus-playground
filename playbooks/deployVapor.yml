@@ -5,7 +5,7 @@
   tasks:
     - name: sync code
       synchronize:
-        src: ../vapor/
+        src: ../HelloVapor/
         dest: vapor
         archive: no
         delete: yes

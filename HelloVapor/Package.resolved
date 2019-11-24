@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "18f2436bf7a6bc2224372c0885db2e0159af1649",
-          "version": "3.9.2"
+          "revision": "10d33362a47fab03a067e78fb0791341d9c634fa",
+          "version": "3.9.3"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
           "branch": null,
-          "revision": "b915c321c6f9e83743ee5efa35a30895e1b02e51",
-          "version": "3.2.0"
+          "revision": "783819d8838d15e1a05b459aa0fd1bde1e37ac26",
+          "version": "3.2.1"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/vapor/multipart.git",
         "state": {
           "branch": null,
-          "revision": "f919a01c4d10a281d6236a21b0b1d1759a72b8eb",
-          "version": "3.0.4"
+          "revision": "f063180d0b84832accd33194e06ed3c41f8609ac",
+          "version": "3.1.1"
         }
       },
       {
@@ -110,6 +110,15 @@
         }
       },
       {
+        "package": "swift-metrics",
+        "repositoryURL": "https://github.com/apple/swift-metrics.git",
+        "state": {
+          "branch": null,
+          "revision": "3fefedaaef285830cc98ae80231140122076a7e0",
+          "version": "1.2.0"
+        }
+      },
+      {
         "package": "swift-nio",
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
@@ -146,6 +155,15 @@
         }
       },
       {
+        "package": "SwiftPrometheus",
+        "repositoryURL": "https://github.com/Yasumoto/SwiftPrometheus.git",
+        "state": {
+          "branch": "nio1",
+          "revision": "fe69dfa28f885360eb268ec8fa06c2243a845a26",
+          "version": null
+        }
+      },
+      {
         "package": "TemplateKit",
         "repositoryURL": "https://github.com/vapor/template-kit.git",
         "state": {
@@ -179,6 +197,15 @@
           "branch": null,
           "revision": "92a58a9a84e4330500b99fe355a94d29f67abe58",
           "version": "3.3.1"
+        }
+      },
+      {
+        "package": "VaporMonitoring",
+        "repositoryURL": "https://github.com/Yasumoto/VaporMonitoring.git",
+        "state": {
+          "branch": "yasumoto-middleware-approach",
+          "revision": "d8ee3bcdc54df36eb0e65b4e54d34aafa4574b98",
+          "version": null
         }
       },
       {
