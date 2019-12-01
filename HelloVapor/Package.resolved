@@ -201,10 +201,10 @@
       },
       {
         "package": "VaporMonitoring",
-        "repositoryURL": "https://github.com/Yasumoto/VaporMonitoring.git",
+        "repositoryURL": "https://github.com/corvino/VaporMonitoring.git",
         "state": {
-          "branch": "yasumoto-middleware-approach",
-          "revision": "d8ee3bcdc54df36eb0e65b4e54d34aafa4574b98",
+          "branch": null,
+          "revision": "c8fb338835efe6f11125e9a528b553b86d03b452",
           "version": null
         }
       },

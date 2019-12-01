@@ -20,7 +20,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
-//    let prometheusService = VaporPrometheus(router: router, route: "metrics")
     let prometheusService = VaporPrometheus(router: router, services: &services, route: "metrics")
     services.register(prometheusService)
     services.register(MetricsMiddleware(), as: MetricsMiddleware.self)

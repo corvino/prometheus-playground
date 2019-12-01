@@ -23,3 +23,9 @@ playbook, with the vapor deploy as the default. But one thing at a time.
 
 Ran into neeind to specify binding to 0.0.0.0 to make the Vapor service
 accessible externally. Maybe this can be handled through nginx instead?
+
+### Load
+
+There is a simple load test using [Tsung](http://tsung.erlang-projects.org/user_manual/index.html).
+
+    tsung -f load/config.xml start
